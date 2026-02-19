@@ -34,8 +34,8 @@ function DisplayResult({ result }) {
         <div
           className={`mt-4 h-1 w-24 mx-auto rounded-full ${
             isSpam
-              ? "bg-gradient-to-r from-red-500 to-pink-500"
-              : "bg-gradient-to-r from-green-500 to-emerald-400"
+              ? "bg-linear-to-r from-red-500 to-pink-500"
+              : "bg-linear-to-r from-green-500 to-emerald-400"
           }`}
         ></div>
       </div>

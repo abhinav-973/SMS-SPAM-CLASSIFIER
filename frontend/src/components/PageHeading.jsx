@@ -4,7 +4,7 @@ function PageHeading() {
   return (
     <div className="min-h-[30vh] flex flex-col items-center justify-center text-center px-4">
       
-      <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent p-2">
+      <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent p-2">
         Email Spam Detector
       </h1>
 
@@ -15,7 +15,7 @@ function PageHeading() {
         <span className="font-semibold text-green-600"> Not Spam</span>.
       </p>
 
-      <div className="mt-6 w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+      <div className="mt-6 w-20 h-1 bg-linear-to-r from-purple-500 to-pink-500 rounded-full"></div>
 
     </div>
   )
