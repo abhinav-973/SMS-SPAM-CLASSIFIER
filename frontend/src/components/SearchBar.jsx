@@ -47,7 +47,7 @@ function SearchBar({ setResult }) {
         {/* Button */}
         <button
           type="submit"
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold hover:opacity-90 transition duration-200 shadow-md cursor-pointer"
+          className="w-full py-3 rounded-xl bg-linear-to-r from-purple-600 to-pink-500 text-white font-semibold hover:opacity-90 transition duration-200 shadow-md cursor-pointer"
         >
           Analyze Email
         </button>
