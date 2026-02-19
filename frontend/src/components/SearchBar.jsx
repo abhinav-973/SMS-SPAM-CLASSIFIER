@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useState } from "react";
 
 function SearchBar({ setResult }) {
@@ -14,19 +15,13 @@ function SearchBar({ setResult }) {
     try {
       setLoading(true);
 
-      const response = await fetch("http://127.0.0.1:8000/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: enterMail }), // must match backend
+      const response = await axios.post("http://127.0.0.1:8000/predict", {
+        text: enterMail,
       });
 
-      const data = await response.json();
-
-      setResult(data); // send result to parent
+      setResult(response.data);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error.response?.data || error.message);
     } finally {
       setLoading(false);
     }
