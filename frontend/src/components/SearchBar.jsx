@@ -4,16 +4,20 @@ import { useState } from "react";
 
 function SearchBar({ setResult }) {
   const [enterMail, setEnterMail] = useState("");
-
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!enterMail.trim()) return;
+    if (!enterMail.trim()) {
+      setError("Please enter an email message.");
+      return;
+    }
 
     try {
       setLoading(true);
+      setError(null);
 
       const response = await axios.post("http://127.0.0.1:8000/predict", {
         text: enterMail,
@@ -21,7 +25,10 @@ function SearchBar({ setResult }) {
 
       setResult(response.data);
     } catch (error) {
-      console.error("Error:", error.response?.data || error.message);
+      setError(
+        error.response?.data?.detail ||
+          "Something went wrong. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
@@ -47,6 +54,7 @@ function SearchBar({ setResult }) {
         {/* Button */}
         <button
           type="submit"
+          disabled={loading}
           className="w-full py-3 rounded-xl bg-linear-to-r from-purple-600 to-pink-500 text-white font-semibold hover:opacity-90 transition duration-200 shadow-md cursor-pointer"
         >
           Analyze Email

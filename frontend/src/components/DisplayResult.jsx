@@ -6,7 +6,7 @@ function DisplayResult({ result }) {
   const isSpam = result.prediction === "Spam";
 
   return (
-    <div className="flex justify-center px-4 mt-8">
+    <div className="flex justify-center px-4 mt-8 w-full">
       <div
         className={`w-full max-w-2xl rounded-2xl shadow-lg p-6 text-center border transition-all duration-300 
         ${
